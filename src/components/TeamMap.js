@@ -18,13 +18,13 @@ class TeamMap extends Component {
             //     this.state.teams.push(res.data.teams[i])
             //     // console.log(this.state.teams[i].teams.name)
             // }
-            this.state.teams.push(...res.data.teams)
+            this.setState({teams: res.data.teams})
         })
     }
 
     render(){
 
-        console.log(this.state.teams, this.state.teams.length)
+        console.log(this.state.teams)
         // console.log(this.state.teams[0].teams.name)
         
 
@@ -33,7 +33,13 @@ class TeamMap extends Component {
                 <div>
 
                     {this.state.teams.length ? 
-                    this.state.teams.map( team => <Team name={team.name} />) 
+                    this.state.teams.map( team => <Team name={team.name}
+                                                        abbreviation={team.abbreviation}
+                                                        active={team.active}
+                                                        conference={team.conference.name}
+                                                        division={team.division.name}
+                                                        shortname={team.shortName}
+                                                        teamname={team.teamName} />) 
                     : 
                     <p>Loading...</p>}
 

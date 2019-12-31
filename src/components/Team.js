@@ -1,12 +1,16 @@
 import React from 'react'
 
 function Team (props) {
-    // const { abbreviation, active, conference, division, name, shortname, teamname } = props
-    const { name } = props
-    console.log(name)
+    const { name, division, conference, abbreviation, shortname, teamname } = props
     return (
         <div>
             <h1>{name}</h1>
+            <p>{abbreviation}</p>
+            {/* <p>{active}</p> */}
+            <p>{conference}</p>
+            <p>{division}</p>
+            <p>{shortname}</p>
+            <p>{teamname}</p>
         </div>
     )
 }
