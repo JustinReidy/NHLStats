@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { withTeams } from '../context/TeamProvider'
 
 import Team from './Team'
+import '../styles/Teams.css'
 
 class TeamMap extends Component {
     constructor(props){
@@ -13,33 +14,21 @@ class TeamMap extends Component {
     }
     
     componentDidMount(){
-        axios.get("https://statsapi.web.nhl.com/api/v1/teams").then(res => {
-            // for(let i = 0; i < res.data.teams.length; i++){
-            //     this.state.teams.push(res.data.teams[i])
-            //     // console.log(this.state.teams[i].teams.name)
-            // }
-            this.setState({teams: res.data.teams})
-        })
+        this.props.getTeams()
     }
 
     render(){
 
-        console.log(this.state.teams)
-        // console.log(this.state.teams[0].teams.name)
-        
-
         return(
             <div>
-                <div>
+                <div className="TeamLayout">
 
-                    {this.state.teams.length ? 
-                    this.state.teams.map( team => <Team name={team.name}
-                                                        abbreviation={team.abbreviation}
-                                                        active={team.active}
+                    {this.props.teams.length ? 
+                    this.props.teams.map( team => <Team name={team.name}
+                                                        id={team.id}
                                                         conference={team.conference.name}
                                                         division={team.division.name}
-                                                        shortname={team.shortName}
-                                                        teamname={team.teamName} />) 
+                                                        />) 
                     : 
                     <p>Loading...</p>}
 
@@ -49,4 +38,4 @@ class TeamMap extends Component {
     }
 }
 
-export default TeamMap
+export default withTeams(TeamMap)

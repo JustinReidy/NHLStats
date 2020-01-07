@@ -1,0 +1,51 @@
+:root {
+    --primary_color: #958AFF;
+    --background_color: #272442;
+    --secondary_color: #7067BF;
+}
+*{
+    background-color: var(--background_color);
+}
+
+a{
+    color: var(--primary_color);
+    text-decoration: none;
+    font-size: x-large;
+}
+
+a:hover{
+    color: var(--secondary_color);
+    text-decoration: underline;
+    font-size: x-large;
+}
+
+h1{
+    color: var(--primary_color)
+}
+
+p{
+    color: var(--secondary_color)
+}
+
+.TeamLayout{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.TeamCard{
+    text-align: center;
+    border: 2px solid white;
+}
+
+.player{
+    display: flex;
+}
+
+.playerName{
+    color: var(--primary_color);
+    padding-right: 15px;
+}
+.playerPosition{
+    color: var(--secondary_color)
+}

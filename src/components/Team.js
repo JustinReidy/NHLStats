@@ -1,16 +1,18 @@
 import React from 'react'
 
+import '../styles/Teams.css'
+
 function Team (props) {
-    const { name, division, conference, abbreviation, shortname, teamname } = props
+    const { name, division, conference } = props
     return (
         <div>
-            <h1>{name}</h1>
-            <p>{abbreviation}</p>
-            {/* <p>{active}</p> */}
-            <p>{conference}</p>
-            <p>{division}</p>
-            <p>{shortname}</p>
-            <p>{teamname}</p>
+            <div className="TeamCard">
+                <a href="singleTeam">{name}</a>
+                
+                <p>{conference}</p>
+                <p>{division}</p>
+                
+            </div>
         </div>
     )
 }
